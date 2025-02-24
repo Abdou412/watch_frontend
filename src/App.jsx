@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import "./App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -21,7 +20,7 @@ function App() {
 
   return (
     <>
-      <h1 >WatchWise</h1>
+      <h1>WatchWise</h1>
       {watches.map((watch) => (
         <div key={watch._id}>
           <h2>{watch.name}</h2>
@@ -34,18 +33,22 @@ function App() {
           <Link to={`/api/watches/${watch._id}`}>Edit</Link>
           <button
             onClick={() => {
-              axios
-                .delete(`http://localhost:3636/api/watches/${watch._id}`)
-                .then((response) => {
-                  console.log("Watch deleted:", response.data);
-                  setWatches(watches.filter((w) => w._id !== watch._id));
-                })
-                .catch((error) => {
-                  console.error(
-                    "There was an error deleting the watch!",
-                    error
-                  );
-                });
+              if (
+                window.confirm(`Are you sure you want to delete ${watch.name}?`)
+              ) {
+                axios
+                  .delete(`http://localhost:3636/api/watches/${watch._id}`)
+                  .then((response) => {
+                    console.log("Watch deleted:", response.data);
+                    setWatches(watches.filter((w) => w._id !== watch._id));
+                  })
+                  .catch((error) => {
+                    console.error(
+                      "There was an error deleting the watch!",
+                      error
+                    );
+                  });
+              }
             }}
           >
             Delete Watch
