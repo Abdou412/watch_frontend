@@ -135,3 +135,11 @@ form button:hover {
 .EditWatch{
   background-color: #150404;
 }
+.ImageContainer img {
+  width: 100px; 
+  height: auto; 
+  border: 2px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  margin: 10px 0; 
+}

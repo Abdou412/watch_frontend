@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <h1>Home Page</h1>
+      <h1 >WatchWise</h1>
       {watches.map((watch) => (
         <div key={watch._id}>
           <h2>{watch.name}</h2>
