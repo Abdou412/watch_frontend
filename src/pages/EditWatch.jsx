@@ -44,8 +44,8 @@ export default function EditWatch() {
   };
 
   return (
-    <div>
-      <h1>Edit Watch</h1>
+    <div className="EditWatch">
+      <h1 >Edit Watch</h1>
       <Link to="/">HOME</Link>
       <form onSubmit={handleSubmit}>
         <div>
