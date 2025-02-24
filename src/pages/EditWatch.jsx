@@ -31,21 +31,23 @@ export default function EditWatch() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .put(`http://localhost:3636/api/watches/${id}`, formData)
-      .then((response) => {
-        console.log("Watch updated:", response.data);
-        // Optionally, redirect or clear the form
-        navigate("/");
-      })
-      .catch((error) => {
-        console.error("There was an error updating the watch!", error);
-      });
+    if (window.confirm("Are you sure you want to update this watch?")) {
+      axios
+        .put(`http://localhost:3636/api/watches/${id}`, formData)
+        .then((response) => {
+          console.log("Watch updated:", response.data);
+          // Optionally, redirect or clear the form
+          navigate("/");
+        })
+        .catch((error) => {
+          console.error("There was an error updating the watch!", error);
+        });
+    }
   };
 
   return (
     <div className="EditWatch">
-      <h1 >Edit Watch</h1>
+      <h1>Edit Watch</h1>
       <Link to="/">HOME</Link>
       <form onSubmit={handleSubmit}>
         <div>
