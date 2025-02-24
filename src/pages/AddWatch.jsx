@@ -25,7 +25,6 @@ export default function AddWatch() {
       .post("http://localhost:3636/api/watches", formData)
       .then((response) => {
         console.log("Watch added:", response.data);
-        window.alert("Watch added successfully!");
         // Optionally, redirect or clear the form
       })
       .catch((error) => {

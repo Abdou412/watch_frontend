@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function WatchDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [watch, setWatch] = useState(null);
 
   useEffect(() => {
@@ -22,7 +23,11 @@ export default function WatchDetails() {
   }
 
   const handleButtonClick = () => {
-    window.location.href = "https://www.example.com"; // Replace with your specified link
+    window.location.href = watch.buyLink; 
+  };
+
+  const handleBackToHomeClick = () => {
+    navigate("/"); // Navigate to the home page
   };
 
   return (
@@ -35,6 +40,7 @@ export default function WatchDetails() {
         <img src={watch.imgURL} alt={watch.name} />
       </div>
       <button onClick={handleButtonClick}>BUY NOW</button>
+      <button onClick={handleBackToHomeClick}>Back to Home</button>
     </div>
   );
 }

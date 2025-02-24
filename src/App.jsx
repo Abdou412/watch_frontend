@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 function App() {
   const [watches, setWatches] = useState([]);
 
-  console.log(watches);
   useEffect(() => {
     axios
       .get("http://localhost:3636/api/watches/")
@@ -23,18 +22,16 @@ function App() {
       <h1>WatchWise</h1>
       <div className="WatchGrid">
         {watches.map((watch) => (
-          <Link
-            to={`/watches/${watch._id}`}
-            key={watch._id}
-            className="WatchCard"
-          >
-            <h2>{watch.name}</h2>
-            <p>Brand: {watch.brand}</p>
-            <p>Price: {watch.price}</p>
-            <p>In Stock: {watch.inStock}</p>
-            <div className="ImageContainer">
-              <img src={watch.imgURL} alt={watch.name} />
-            </div>
+          <div key={watch._id} className="WatchCard">
+            <Link to={`/watches/${watch._id}`}>
+              <h2>{watch.name}</h2>
+              <p>Brand: {watch.brand}</p>
+              <p>Price: {watch.price}</p>
+              <p>In Stock: {watch.inStock}</p>
+              <div className="ImageContainer">
+                <img src={watch.imgURL} alt={watch.name} />
+              </div>
+            </Link>
             <Link
               to={`/api/watches/${watch._id}`}
               onClick={(e) => e.stopPropagation()}
@@ -66,7 +63,7 @@ function App() {
             >
               Delete Watch
             </button>
-          </Link>
+          </div>
         ))}
       </div>
       <Link to="/api/watches">Add Watch</Link>
