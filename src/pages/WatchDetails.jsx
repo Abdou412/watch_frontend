@@ -21,6 +21,10 @@ export default function WatchDetails() {
     return <div>Loading...</div>;
   }
 
+  const handleButtonClick = () => {
+    window.location.href = "https://www.example.com"; // Replace with your specified link
+  };
+
   return (
     <div>
       <h1>{watch.name}</h1>
@@ -30,6 +34,7 @@ export default function WatchDetails() {
       <div className="ImageContainer">
         <img src={watch.imgURL} alt={watch.name} />
       </div>
+      <button onClick={handleButtonClick}>BUY NOW</button>
     </div>
   );
 }
