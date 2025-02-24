@@ -23,7 +23,11 @@ function App() {
       <h1>WatchWise</h1>
       <div className="WatchGrid">
         {watches.map((watch) => (
-          <div key={watch._id} className="WatchCard">
+          <Link
+            to={`/watches/${watch._id}`}
+            key={watch._id}
+            className="WatchCard"
+          >
             <h2>{watch.name}</h2>
             <p>Brand: {watch.brand}</p>
             <p>Price: {watch.price}</p>
@@ -31,9 +35,15 @@ function App() {
             <div className="ImageContainer">
               <img src={watch.imgURL} alt={watch.name} />
             </div>
-            <Link to={`/api/watches/${watch._id}`}>Edit</Link>
+            <Link
+              to={`/api/watches/${watch._id}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Edit
+            </Link>
             <button
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 if (
                   window.confirm(
                     `Are you sure you want to delete ${watch.name}?`
@@ -56,7 +66,7 @@ function App() {
             >
               Delete Watch
             </button>
-          </div>
+          </Link>
         ))}
       </div>
       <Link to="/api/watches">Add Watch</Link>
