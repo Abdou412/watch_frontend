@@ -3,9 +3,9 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App.jsx";
-import AddWatch from "./pages/AddWatch.jsx";
-import EditWatch from "./pages/EditWatch.jsx";
-import WatchDetails from "./pages/WatchDetails.jsx"; // Import the WatchDetails component
+import AddWatch from "./components/AddWatch.jsx";
+import EditWatch from "./components/EditWatch.jsx";
+import WatchDetails from "./components/WatchDetails.jsx"; // Import the WatchDetails component
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

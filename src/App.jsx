@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
 
 function App() {
   const [watches, setWatches] = useState([]);
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <>
-      <h1>WatchWise</h1>
+      <NavigationBar />
       <div className="WatchGrid">
         {watches.map((watch) => (
           <div key={watch._id} className="WatchCard">
@@ -69,7 +70,6 @@ function App() {
           </div>
         ))}
       </div>
-      <Link to="/api/watches">Add Watch</Link>
     </>
   );
 }
