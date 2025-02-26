@@ -1,24 +1,28 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 export default function EditWatch() {
-  const navigate = useNavigate();
   const { id } = useParams();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     brand: "",
     price: "",
     inStock: "",
     imgURL: "",
+    buyLink: "", // Add buyLink to the form data
   });
 
   useEffect(() => {
-    axios.get(`http://localhost:3636/api/watches/${id}`).then((response) => {
-      setFormData(response.data);
-    });
+    axios
+      .get(`http://localhost:3636/api/watches/${id}`)
+      .then((response) => {
+        setFormData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, [id]);
 
   const handleChange = (e) => {
@@ -36,7 +40,6 @@ export default function EditWatch() {
         .put(`http://localhost:3636/api/watches/${id}`, formData)
         .then((response) => {
           console.log("Watch updated:", response.data);
-          // Optionally, redirect or clear the form
           navigate("/");
         })
         .catch((error) => {
@@ -97,6 +100,16 @@ export default function EditWatch() {
             name="imgURL"
             value={formData.imgURL}
             onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Buy Link:</label>
+          <input
+            type="text"
+            name="buyLink"
+            value={formData.buyLink}
+            onChange={handleChange}
+            required
           />
         </div>
         <button type="submit">Update Watch</button>

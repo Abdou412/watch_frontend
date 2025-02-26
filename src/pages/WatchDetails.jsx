@@ -23,11 +23,11 @@ export default function WatchDetails() {
   }
 
   const handleButtonClick = () => {
-    window.location.href = watch.buyLink; 
+    window.location.href = watch.buyLink;
   };
 
   const handleBackToHomeClick = () => {
-    navigate("/"); // Navigate to the home page
+    navigate("/");
   };
 
   return (

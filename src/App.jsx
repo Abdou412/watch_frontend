@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function App() {
   const [watches, setWatches] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -32,12 +33,14 @@ function App() {
                 <img src={watch.imgURL} alt={watch.name} />
               </div>
             </Link>
-            <Link
-              to={`/api/watches/${watch._id}`}
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate(`/api/watches/${watch._id}`);
+              }}
             >
               Edit
-            </Link>
+            </button>
             <button
               onClick={(e) => {
                 e.stopPropagation();

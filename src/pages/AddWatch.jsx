@@ -9,6 +9,7 @@ export default function AddWatch() {
     price: "",
     inStock: "",
     imgURL: "",
+    buyLink: "", // Add buyLink to the form data
   });
 
   const handleChange = (e) => {
@@ -21,15 +22,18 @@ export default function AddWatch() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:3636/api/watches", formData)
-      .then((response) => {
-        console.log("Watch added:", response.data);
-        // Optionally, redirect or clear the form
-      })
-      .catch((error) => {
-        console.error("There was an error adding the watch!", error);
-      });
+    if (window.confirm("Are you sure you want to add this watch?")) {
+      axios
+        .post("http://localhost:3636/api/watches", formData)
+        .then((response) => {
+          console.log("Watch added:", response.data);
+          window.alert("Watch added successfully!");
+          // Optionally, redirect or clear the form
+        })
+        .catch((error) => {
+          console.error("There was an error adding the watch!", error);
+        });
+    }
   };
 
   return (
@@ -84,6 +88,16 @@ export default function AddWatch() {
             name="imgURL"
             value={formData.imgURL}
             onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label>Buy Link:</label>
+          <input
+            type="text"
+            name="buyLink"
+            value={formData.buyLink}
+            onChange={handleChange}
+            required
           />
         </div>
         <button type="submit">Add Watch</button>
