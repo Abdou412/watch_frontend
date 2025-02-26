@@ -8,6 +8,7 @@ export default function NavigationBar() {
       <nav>
         <Link to="/">Home</Link>
         <Link to="/api/watches">Add Watch</Link>
+        <Link to="/about">About</Link>
       </nav>
     </div>
   );
