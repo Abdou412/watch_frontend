@@ -5,18 +5,8 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
+
 
 @keyframes logo-spin {
   from {
@@ -64,17 +54,18 @@
 .watch-item img {
   max-width: 100%;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(202, 28, 28, 0.2);
   transition: transform 0.3s ease;
 }
 
 .watch-item img:hover {
   transform: scale(1.05);
+  
 }
 
 .watch-item button {
   background-color: #ff4d4d;
-  color: white;
+  color: rgb(5, 0, 0);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -96,9 +87,9 @@
   text-decoration: underline;
 }
 
-/* New styles for the form */
+
 form {
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   text-align: left;
 }
@@ -115,7 +106,7 @@ form label {
 form input {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid #050505;
   border-radius: 4px;
 }
 
@@ -133,10 +124,10 @@ form button:hover {
 }
 
 .EditWatch{
-  background-color: #150404;
+  background-color: #040000;
 }
 .ImageContainer img {
-  width: 100px; 
+  width: auto; 
   height: auto; 
   border: 2px solid #ccc; 
   border-radius: 8px; 
@@ -147,11 +138,11 @@ form button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .WatchCard {
-  border: 1px solid #ccc;
+  border: 1px solid #ae0505;
   border-radius: 8px;
   padding: 16px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
