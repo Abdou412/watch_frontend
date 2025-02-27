@@ -23,7 +23,7 @@ export default function WatchDetails() {
   }
 
   const handleButtonClick = () => {
-    window.location.href = watch.buyLink;
+    window.open(watch.buyLink, "_blank");
   };
 
   const handleBackToHomeClick = () => {
@@ -37,7 +37,11 @@ export default function WatchDetails() {
       <p>Price: {watch.price}</p>
       <p>In Stock: {watch.inStock}</p>
       <div className="ImageContainer">
-        <img src={watch.imgURL} alt={watch.name} />
+        <img
+          src={watch.imgURL}
+          alt={watch.name}
+          style={{ width: "50%", height: "auto" }}
+        />
       </div>
       <button onClick={handleButtonClick}>BUY NOW</button>
       <button onClick={handleBackToHomeClick}>Back to Home</button>

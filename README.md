@@ -11,7 +11,7 @@ Welcome to the WatchWise frontend application. This project is built using React
 To get started with the WatchWise frontend application, follow these steps:
 
 1. Clone the repository:
-   ```bash
+   
    git clone https://github.com/Abdou412/watch_frontend.git
 
 
@@ -21,7 +21,7 @@ To get started with the WatchWise frontend application, follow these steps:
 
    This will start the development server and open the application in your default web browser. 
 
-   Features:
+# Features:
 View Watches: Browse a list of available watches with details such as name, brand, price, and stock status.
 Add Watch: Add a new watch to the collection.
 Edit Watch: Edit the details of an existing watch.
